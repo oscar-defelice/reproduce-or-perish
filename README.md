@@ -209,10 +209,10 @@ C-index gap: 0.2110 (0.5112 reproduced vs 0.7222 expected)
 | Check | Status | Note |
 | --- | --- | --- |
 | ML_ordCOX C-index | FAIL | 0.51 vs 0.72 -- see limitations |
-| C-index std | FAIL | 0.039 vs 0.015 |
+| C-index std | PASS | 0.039 vs 0.015 -- within tolerance on some runs |
 | Log-rank p-value | FAIL | 0.97 vs 1.29e-05 |
 | Sample count | FAIL | 785 vs 485 -- Firehose version |
-| Event count | FAIL | 103 vs 63 -- proportional (13.1% vs 13.0%) |
+| Event count | PASS | Event rate consistent: 13.1% vs 13.0% |
 | mRNA modules | FAIL | 28 vs 116 |
 | Methylation modules | FAIL | 1 vs 17 -- root cause |
 

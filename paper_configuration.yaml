@@ -1,0 +1,18 @@
+# Paper configuration
+# Change these values to reproduce a different paper
+
+paper:
+  doi: "10.1093/bioinformatics/btab140"
+  title: "Integrative survival analysis of breast cancer with gene expression and DNA methylation data"
+  email_unpaywall: "reproduced@science.org" # required by Unpaywall API
+
+# Expected results for verification
+# These are the ground truth values from the paper
+# Populated automatically by SKILL_results_extraction
+expected_results: {}
+
+# Data sources
+data:
+  primary: "biolearns" # biolearns | gdc_api
+  fallback: "gdc_api"
+  tcga_project: "TCGA-BRCA"

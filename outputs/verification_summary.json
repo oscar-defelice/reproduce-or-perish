@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-08-12T22:37:34.279552",
+  "overall": "PARTIAL",
+  "checks": {
+    "primary_cindex": "False",
+    "primary_cindex_std": "False",
+    "logrank_p": "False",
+    "n_samples": "False",
+    "n_events": "False",
+    "mrna_modules": "False",
+    "meth_modules": "False"
+  },
+  "n_passed": 0,
+  "n_failed": 7,
+  "n_skipped": 0,
+  "reproduced_cindex": 0.5112,
+  "expected_cindex": 0.7222,
+  "cindex_gap": 0.211
+}

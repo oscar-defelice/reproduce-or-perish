@@ -8,7 +8,7 @@ data/
 outputs/*
 !outputs/extracted_results.json
 !outputs/methods.md
-!outputs/verification_report.md
+!outputs/verification_summary.json
 
 # python files
 *.pyc

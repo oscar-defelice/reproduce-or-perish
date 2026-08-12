@@ -119,6 +119,67 @@ claude
 Claude Code reads `CLAUDE.md` and executes the full pipeline autonomously,
 following the anti-self-convincing protocol automatically.
 
+### Running with Claude Code -- full instructions
+
+Claude Code orchestrates the entire pipeline autonomously by reading
+`CLAUDE.md` and the SKILL files.
+
+#### Prerequisites
+
+```bash
+cd reproduce-or-perish
+conda activate pop
+```
+
+#### Launch Claude Code
+
+```bash
+claude
+```
+
+#### Initial prompt
+
+Once Claude Code opens, paste this prompt exactly:
+
+```bash
+Follow the instructions in CLAUDE.md to reproduce the paper with DOI
+10.1093/bioinformatics/btab140. Start from Step 1. The conda environment
+"pop" is already active and all dependencies are installed. The biolearns
+patch has already been applied. Execute each step in order and stop after
+each git commit to confirm before proceeding.
+````
+
+#### What Claude Code will do
+
+1. Run `tools/paper_downloader.py` -- downloads the PDF
+2. Run `tools/pdf_parser.py` -- extracts results and methods
+3. **Pause and ask you to confirm the git checkpoint commit**
+   (this is mandatory for the anti-self-convincing protocol)
+4. Run `tools/data_fetcher.py` -- downloads TCGA data (~5 minutes)
+5. Run `tools/analysis_runner.py` -- reproduces the analysis (~4 minutes)
+6. Run `tools/verifier.py` -- generates the verification report
+
+#### The checkpoint commit
+
+At Step 3, Claude Code will ask you to run:
+
+```bash
+git add outputs/extracted_results.json outputs/methods.md
+git commit -m "checkpoint: extracted results before reproduction"
+```
+
+This commit is not optional -- it is the structural proof that target
+values were fixed before any analysis was run. The git timestamp is
+the anti-self-convincing guarantee.
+
+#### Notes
+
+- Claude Code cannot make git commits autonomously -- you approve each one
+- The full pipeline takes ~10 minutes on Apple M-series
+- If any step fails, Claude Code will document the failure in
+  `outputs/verification_report.md` and continue with the next step
+- Re-running is safe -- data fetching skips existing files automatically
+
 ---
 
 ## Run a different paper

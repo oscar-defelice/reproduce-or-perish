@@ -1,0 +1,75 @@
+{
+  "paper_doi": "10.1093/bioinformatics/btab140",
+  "extraction_method": "regex_on_pymupdf_text",
+  "dataset": {
+    "n_samples": 485.0,
+    "n_mrna_genes": 20533,
+    "n_methylation_genes": 20106,
+    "n_deceased": 63.0,
+    "n_living": 413.0
+  },
+  "feature_selection": {
+    "lmQCM_cindex": 0.6894,
+    "WGCNA_cindex": 0.6423,
+    "DA_cindex": 0.5507
+  },
+  "multimodal_vs_single": {
+    "mrna_meth_cindex": 0.7222,
+    "mrna_only_cindex": 0.6707,
+    "meth_only_cindex": 0.5573
+  },
+  "multitask": {
+    "ML_ordCOX_cindex": 0.7222,
+    "main_loss_only_cindex": 0.6894,
+    "aux_loss_only_cindex": 0.5056
+  },
+  "baselines": {
+    "ML_ordCOX": {
+      "cindex": 0.7222,
+      "std": 0.0145
+    },
+    "MTLSA": {
+      "cindex": 0.6448,
+      "std": 0.0232
+    },
+    "DeepSurv": {
+      "cindex": 0.6523,
+      "std": 0.0271
+    },
+    "MLP": {
+      "cindex": 0.6489,
+      "std": 0.0663
+    },
+    "LASSO": {
+      "cindex": 0.6044,
+      "std": 0.0097
+    },
+    "RSF": {
+      "cindex": 0.5729,
+      "std": 0.0178
+    }
+  },
+  "stratification": {
+    "ML_ordCOX_logrank_p": 1.29e-05,
+    "RSF_logrank_p": 0.702,
+    "LASSO_logrank_p": 0.834,
+    "MLP_logrank_p": 0.063,
+    "DeepSurv_logrank_p": 0.0257,
+    "MTLSA_logrank_p": 0.0514
+  },
+  "lmqcm_params": {
+    "gamma": 0.3,
+    "t": 1.0,
+    "alpha": 1.0,
+    "beta": 0.4,
+    "n_mrna_modules": 116.0,
+    "n_methylation_modules": 17.0
+  },
+  "training": {
+    "n_folds": 10.0,
+    "n_epochs": 1000.0,
+    "learning_rate_init": 0.001,
+    "lr_decay_factor": 0.5,
+    "lr_decay_every_epochs": 100.0
+  }
+}

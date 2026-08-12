@@ -3,9 +3,12 @@
 
 # data and outputs
 data/
-outputs/
 *.parquet
 *.csv
+outputs/*
+!outputs/extracted_results.json
+!outputs/methods.md
+!outputs/verification_report.md
 
 # python files
 *.pyc
